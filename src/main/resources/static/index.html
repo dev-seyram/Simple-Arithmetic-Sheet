@@ -29,20 +29,49 @@
       </div>
     </div>
 
-    <div class="grid-wrap">
-      <table class="sheet" id="sheet" aria-label="Spreadsheet grid">
-        <thead>
-          <tr>
-            <th class="corner"></th>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-            <th>D</th>
-            <th>E</th>
-          </tr>
-        </thead>
-        <tbody id="sheetBody"></tbody>
-      </table>
+    <div class="workspace">
+      <div class="sheet-panel">
+        <div class="grid-wrap">
+          <table class="sheet" id="sheet" aria-label="Spreadsheet grid">
+            <thead>
+              <tr>
+                <th class="corner"></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+              </tr>
+            </thead>
+            <tbody id="sheetBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="formulas-sidebar" aria-label="Formulas and operations reference">
+        <div class="formulas-sidebar-header">Formulas &amp; Operations</div>
+        <div class="formulas-sidebar-body">
+          <p class="formulas-arithmetic">
+            <strong>Arithmetic:</strong>
+            + addition | &minus; subtraction | * multiplication | / division | ^ exponent
+          </p>
+          <p class="formulas-section-label">Common formulas:</p>
+          <ul class="formulas-list">
+            <li><code>SUM(range)</code> &mdash; adds values</li>
+            <li><code>AVERAGE(range)</code> &mdash; calculates the mean</li>
+            <li><code>COUNT(range)</code> &mdash; counts numbers</li>
+            <li><code>COUNTA(range)</code> &mdash; counts non-empty cells</li>
+            <li><code>MAX(range)</code> &mdash; finds the largest value</li>
+            <li><code>MIN(range)</code> &mdash; finds the smallest value</li>
+            <li><code>IF(condition, value_if_true, value_if_false)</code> &mdash; returns a result based on a condition</li>
+            <li><code>COUNTIF(range, criterion)</code> &mdash; counts cells matching a criterion</li>
+            <li><code>SUMIF(range, criterion, sum_range)</code> &mdash; adds values matching a criterion</li>
+          </ul>
+          <div class="formulas-example">
+            <strong>Example:</strong> <code>=SUM(B2:B10)</code>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 

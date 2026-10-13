@@ -18,11 +18,95 @@ body {
 
 .app {
   width: 100%;
-  max-width: 720px;
+  max-width: 1040px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   padding: 20px 24px 28px;
+}
+
+.workspace {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sheet-panel {
+  flex: 1 1 65%;
+  min-width: 0;
+}
+
+.formulas-sidebar {
+  flex: 0 1 320px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.formulas-sidebar-header {
+  background: #1e7e34;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+}
+
+.formulas-sidebar-body {
+  padding: 14px 16px 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #3c4043;
+}
+
+.formulas-arithmetic {
+  margin: 0 0 14px;
+}
+
+.formulas-section-label {
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: #1e7e34;
+}
+
+.formulas-list {
+  margin: 0 0 14px;
+  padding-left: 18px;
+}
+
+.formulas-list li {
+  margin-bottom: 6px;
+}
+
+.formulas-list code {
+  font-size: 12px;
+  background: #f1f3f4;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.formulas-example {
+  background: #e6f4ea;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.formulas-example code {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .workspace {
+    flex-direction: column;
+  }
+
+  .formulas-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+  }
 }
 
 .app-header {
