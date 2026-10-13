@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Arithmetic Sheet</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="app-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="3" fill="#34a853"/>
+          <path stroke="#fff" stroke-width="1.5" d="M7 8h10M7 12h10M7 16h10M12 7v10"/>
+        </svg>
+      </div>
+      <h1>Simple Arithmetic Sheet</h1>
+    </header>
+
+    <div class="formula-row">
+      <button type="button" class="fx-button" id="fxButton" disabled>
+        <span class="fx-italic">fx</span> Formula
+      </button>
+      <div class="formula-input-wrap">
+        <span class="formula-prefix">fx</span>
+        <input type="text" class="formula-input" id="formulaBar" autocomplete="off" spellcheck="false"
+               placeholder="" aria-label="Formula bar">
+      </div>
+    </div>
+
+    <div class="grid-wrap">
+      <table class="sheet" id="sheet" aria-label="Spreadsheet grid">
+        <thead>
+          <tr>
+            <th class="corner"></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+          </tr>
+        </thead>
+        <tbody id="sheetBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

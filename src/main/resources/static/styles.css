@@ -1,0 +1,214 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: #202124;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 24px 28px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.app-icon {
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.formula-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.fx-button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.fx-italic {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.formula-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  background: #fff;
+  padding: 0 10px;
+  min-height: 36px;
+}
+
+.formula-prefix {
+  color: #9aa0a6;
+  font-size: 12px;
+  font-style: italic;
+  margin-right: 8px;
+  user-select: none;
+}
+
+.formula-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  background: transparent;
+  min-width: 0;
+}
+
+.grid-wrap {
+  overflow-x: auto;
+}
+
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.sheet th,
+.sheet td {
+  border: 1px solid #e0e0e0;
+  height: 32px;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.sheet thead th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #5f6368;
+  font-size: 12px;
+}
+
+.sheet th.corner {
+  width: 40px;
+  min-width: 40px;
+  background: #f8f9fa;
+}
+
+.sheet thead th:not(.corner) {
+  width: calc((100% - 40px) / 5);
+}
+
+.sheet tbody th.row-header {
+  background: #f8f9fa;
+  font-weight: 500;
+  color: #5f6368;
+  font-size: 12px;
+  width: 40px;
+}
+
+.cell-wrapper {
+  position: relative;
+  height: 100%;
+  min-height: 30px;
+}
+
+.sheet td.cell {
+  background: #fff;
+  cursor: cell;
+  position: relative;
+}
+
+.sheet td.cell.selected .cell-wrapper {
+  outline: 2px solid #1a73e8;
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.sheet td.cell.selected .fill-handle {
+  display: block;
+}
+
+.fill-handle {
+  display: none;
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 6px;
+  height: 6px;
+  background: #1a73e8;
+  cursor: crosshair;
+  z-index: 2;
+}
+
+.cell-display {
+  padding: 4px 6px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 22px;
+  min-height: 30px;
+}
+
+.cell-display.error {
+  color: #d93025;
+  font-size: 12px;
+}
+
+.cell-editor {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 4px 6px;
+  font-size: 14px;
+  font-family: inherit;
+  text-align: right;
+  background: #fff;
+  z-index: 3;
+}
+
+.sheet td.cell.editing .cell-display {
+  visibility: hidden;
+}
