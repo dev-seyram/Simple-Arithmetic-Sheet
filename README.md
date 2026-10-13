@@ -35,6 +35,34 @@ When the server is up, open:
 
 Static files (`index.html`, `styles.css`, `app.js`) are served from Spring Boot’s `classpath:/static/` folder.
 
+## Deploy on Render
+
+This repo includes a **Dockerfile** and **`render.yaml`** for [Render](https://render.com).
+
+### Option 1: Blueprint (render.yaml)
+
+1. Render Dashboard → **New +** → **Blueprint**.
+2. Connect the GitHub repo `Simple-Arithmetic-Sheet`.
+3. Apply the blueprint; Render builds from `./Dockerfile` and deploys the web service.
+
+### Option 2: Manual Web Service (Docker)
+
+1. **New +** → **Web Service** → select the repo.
+2. Set **Language** to **Docker** (Render detects the root `Dockerfile`).
+3. Leave build/start commands empty (Dockerfile defines the build).
+4. Deploy. Open the `*.onrender.com` URL.
+
+### Option 3: Native Java (no Docker)
+
+| Setting | Value |
+|---------|--------|
+| Build Command | `mvn clean package -DskipTests` |
+| Start Command | `java -jar target/simple-arithmetic-sheet-1.0.0.jar` |
+
+`application.properties` uses `server.port=${PORT:8080}` so Render’s `PORT` is honored locally and in production.
+
+**Note:** Free tier services sleep after inactivity; the grid is in-memory and resets on restart or redeploy.
+
 ## API
 
 | Method | Path | Description |
