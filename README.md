@@ -1,85 +1,17 @@
-# Simple Arithmetic Sheet
+Some examples of real life applications that uses areays includes;
+Digital Images: Storing the color of every pixel in a grid.
+Seat Booking Systems: Managing rows and columns of seats for flights or cinemas.
+Board Games: Tracking the positions of pieces on a chessboard or tic-tac-toe grid.
+Scoreboards: Storing lists of top scores or player statistics in order.
 
-A minimal spreadsheet web app: **Java 17 + Spring Boot** backend with an **8×5** `String[][]` grid, and a **vanilla HTML/CSS/JavaScript** frontend.
+Why Arrays are the Best Choice for Your Spreadsheet
+For the "Simple Arithmetic Sheet," using a 2D array is much better than using other complex data structures for a few simple reasons:
 
-## Features
+1. It perfectly matches the visual grid
+A spreadsheet is naturally a grid of rows and columns, and a 2D array is exactly that. It makes translating user input very easy. For example, cell "A1" perfectly translates to the very first slot in your array (row 0, column 0).
 
-- Grid columns **A–E**, rows **1–8**
-- Formula bar and in-cell editing
-- Formulas starting with `=` (e.g. `=A1+B1`, `=A1*B2-C3`)
-- Operators: `+`, `-`, `*`, `/` (with parentheses)
-- Circular references reported as `#CYCLE!`
+2. Instant speed and lookups
+When a user types a formula like =A1+B1, the backend needs to find those values immediately. Because arrays are highly organized in the computer's memory, the program can instantly grab the data from those exact spots without having to "search" for it.
 
-## Requirements
-
-- Java 17 or newer
-- Maven 3.6+ (or use the Maven Wrapper if present)
-
-## Run the application
-
-From the project directory `simple-arithmetic-sheet`:
-
-```bash
-mvn spring-boot:run
-```
-
-On Windows (PowerShell):
-
-```powershell
-mvn spring-boot:run
-```
-
-When the server is up, open:
-
-**http://localhost:8080**
-
-Static files (`index.html`, `styles.css`, `app.js`) are served from Spring Boot’s `classpath:/static/` folder.
-
-## Deploy on Render
-
-This repo includes a **Dockerfile** and **`render.yaml`** for [Render](https://render.com).
-
-### Option 1: Blueprint (render.yaml)
-
-1. Render Dashboard → **New +** → **Blueprint**.
-2. Connect the GitHub repo `Simple-Arithmetic-Sheet`.
-3. Apply the blueprint; Render builds from `./Dockerfile` and deploys the web service.
-
-### Option 2: Manual Web Service (Docker)
-
-1. **New +** → **Web Service** → select the repo.
-2. Set **Language** to **Docker** (Render detects the root `Dockerfile`).
-3. Leave build/start commands empty (Dockerfile defines the build).
-4. Deploy. Open the `*.onrender.com` URL.
-
-### Option 3: Native Java (no Docker)
-
-| Setting | Value |
-|---------|--------|
-| Build Command | `mvn clean package -DskipTests` |
-| Start Command | `java -jar target/simple-arithmetic-sheet-1.0.0.jar` |
-
-`application.properties` uses `server.port=${PORT:8080}` so Render’s `PORT` is honored locally and in production.
-
-**Note:** Free tier services sleep after inactivity; the grid is in-memory and resets on restart or redeploy.
-
-## API
-
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/cells` | Full grid: each cell has `input` (stored value/formula) and `display` (computed) |
-| `POST` | `/api/cells/update` | JSON body: `{ "row": 0, "column": 0, "value": "=A1+B1" }` — returns updated grid |
-
-Row and column are **zero-based** (`A1` → `row: 0`, `column: 0`).
-
-## Project layout
-
-```
-src/main/java/com/example/sheet/
-  SimpleArithmeticSheetApplication.java
-  service/SpreadsheetService.java    # String[][] data grid
-  service/FormulaEvaluator.java    # formula parsing & arithmetic
-  web/CellController.java
-src/main/resources/static/
-  index.html, styles.css, app.js
-```
+3. The size is fixed
+Using a specific size (8 rows by 5 columns). Arrays are  perfect for this because you create them with a strict size right from the start. This keeps the code incredibly simple and uses the computer's memory very efficiently, whereas other data structures that grow and shrink would add unnecessary complexity.
